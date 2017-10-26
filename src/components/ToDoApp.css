@@ -1,0 +1,25 @@
+
+.category {
+  border: thin solid red;
+}
+.category-text {
+  color: red;
+}
+.todo {
+  border: thin solid blue;
+}
+.todo-text {
+  color: blue;
+}
+.subtodo {
+  border: thin solid green;
+}
+.subtodo-text {
+  color: green;
+}
+.outcomes {
+  border: thin solid orange;
+}
+.outcomes-text {
+  color: orange;
+}
