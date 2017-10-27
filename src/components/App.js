@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import AccountPanel from './AccountPanel.js';
-import ToDoApp from './ToDoApp.js';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import AccountPanel from "./AccountPanel.js";
+import SmartToDoApp from "./SmartToDoApp.js";
+import ErrorBoundary from "./ErrorBoundary.js";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
   render() {
@@ -25,7 +26,9 @@ class App extends Component {
           <AccountPanel />
 
           {/* Main ToDo UI */}
-          <ToDoApp />
+          <ErrorBoundary>
+            <SmartToDoApp />
+          </ErrorBoundary>
 
         </div>
 

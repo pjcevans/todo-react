@@ -1,3 +1,11 @@
+## Next up:
+* Implement IDs for adding / removing todos etc
+* Implement add/remove todo etc front-end
+
+
+
+
+
 #### Process for starting a redux app from scratch, bottom up:
 
 * Lay out dumb component hierarchy
