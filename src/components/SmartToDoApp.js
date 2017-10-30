@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import ToDoApp from "./ToDoApp";
 import { connect } from "react-redux";
-import { addTodo } from "../actions/todos";
+import { addTodo, addSubTodo, addCategory } from "../actions/todos";
 
 class SmartToDoApp extends Component {
 
@@ -9,7 +9,9 @@ class SmartToDoApp extends Component {
     return (
       <ToDoApp
         todosList={this.props.todos}
-        addTodo={this.props.addTodo} />
+        addTodo={this.props.addTodo}
+        addSubTodo={this.props.addSubTodo}
+        addCategory={this.props.addCategory} />
     );
   }
 }
@@ -20,13 +22,15 @@ class SmartToDoApp extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos.todosList
+    todos: state.todosLists
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addTodo: (text, catID, todoID) => dispatch(addTodo(text, catID, todoID)),
+    addTodo: (text, catID, numberOfTodos) => dispatch(addTodo(text, catID, numberOfTodos)),
+    addSubTodo: (text, catID, todoID, numberOfTodos) => dispatch(addSubTodo(text, catID, todoID, numberOfTodos)),
+    addCategory: (text, numberofCategories ) => dispatch(addCategory(text, numberofCategories ))
   };
 };
 

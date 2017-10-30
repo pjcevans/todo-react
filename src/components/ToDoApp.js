@@ -47,12 +47,12 @@ const ToDoApp = (props) => {
                           </Row>
                         );
                       })}
-                      <p>Add Sub-ToDo, category ID = {category.catID}, ToDo ID = {category.todos.length}, Sub-ToDo ID = {todo.subtodos.length} </p>
+                      <p onClick={() => props.addSubTodo("testsubtestsubtestsub", category.catID, todo.todoID, todo.subtodos.length)}>Add Sub-ToDo, category ID = {category.catID}, ToDo ID = {todo.todoID}, Sub-ToDo ID = {todo.subtodos.length} </p>
 
                     </div>
                   );
                 })}
-                <p>Add ToDo, category ID = {category.catID}, ToDo ID = {category.todos.length}</p>
+                <p onClick={() => props.addTodo("testtesttest", category.catID, category.todos.length)}>Add ToDo, category ID = {category.catID}, ToDo ID = {category.todos.length}</p>
               </Col>
               <Col xs={12} md={4} className="outcomes">
                 <ul>
@@ -67,7 +67,7 @@ const ToDoApp = (props) => {
           );
         })}
       </Row>
-      <Row><p>Add Category, id = {todosList.length + 1}</p></Row>
+      <Row><p onClick={() => props.addCategory("testtesttest", todosList.length)}>Add Category, id = {todosList.length + 1}</p></Row>
 
     </Grid>
   );
