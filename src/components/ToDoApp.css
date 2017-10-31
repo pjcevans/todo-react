@@ -1,25 +1,40 @@
-
-.category {
-  border: thin solid red;
-}
-.category-text {
-  color: red;
-}
-.todo {
-  border: thin solid blue;
-}
-.todo-text {
-  color: blue;
-}
-.subtodo {
-  border: thin solid green;
-}
-.subtodo-text {
-  color: green;
-}
 .outcomes {
   border: thin solid orange;
   }
 .outcomes-text {
   color: orange;
+}
+
+.list-block {
+  padding: 50px;
+}
+
+.title-block {
+  border: thin solid red;
+}
+.title-item {
+  background: blue;
+}
+.title-text {
+  color: red;
+}
+
+.todo-block {
+  border: thin solid blue;
+}
+.todo-item {
+  background: green;
+}
+.todo-text {
+  color: blue;
+}
+
+.subtodo-block {
+  border: thin solid green;
+}
+.subtodo-item {
+  background: red;
+}
+.subtodo-text {
+  color: green;
 }

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from "react";
 import ToDoApp from "./ToDoApp";
 import { connect } from "react-redux";
 import { addTodo, addSubTodo, addCategory } from "../actions/todos";
+import { selectActiveInput } from  "../actions/toggles";
 
 class SmartToDoApp extends Component {
 
@@ -11,7 +12,9 @@ class SmartToDoApp extends Component {
         todosList={this.props.todos}
         addTodo={this.props.addTodo}
         addSubTodo={this.props.addSubTodo}
-        addCategory={this.props.addCategory} />
+        addCategory={this.props.addCategory}
+        selectActiveInput={this.props.selectActiveInput}
+        activeInput={this.props.activeInput } />
     );
   }
 }
@@ -22,7 +25,8 @@ class SmartToDoApp extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todosLists
+    todos: state.todosLists,
+    activeInput: state.toggles.activeInput
   };
 };
 
@@ -30,7 +34,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addTodo: (text, catID, numberOfTodos) => dispatch(addTodo(text, catID, numberOfTodos)),
     addSubTodo: (text, catID, todoID, numberOfTodos) => dispatch(addSubTodo(text, catID, todoID, numberOfTodos)),
-    addCategory: (text, numberofCategories ) => dispatch(addCategory(text, numberofCategories ))
+    addCategory: (text, numberofCategories ) => dispatch(addCategory(text, numberofCategories )),
+    selectActiveInput: (catID, todoID, subtodoID) => dispatch(selectActiveInput(catID, todoID, subtodoID))
   };
 };
 

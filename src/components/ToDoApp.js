@@ -18,15 +18,18 @@ const ToDoApp = (props) => {
         {todosList.map((category) => {
           return (
             <div>
-              <Col xs={12} md={8} className="category">
-                <p className="category-text">Title: {category.title}</p>
-
+              <Col className="list-block" xs={12} md={8} >
+                <Row className="title-block" >
+                  <Col className="title-item" xs={11} md={11}>
+                    <p className="title-text">Title: {category.title}</p>
+                  </Col>
+                </Row>
                 {/* For each ToDo render the title and loop over the sub-ToDos */}
                 {category.todos.map((todo) => {
                   return (
                     <div>
-                      <Row>
-                        <Col className="todo" xs={11} md={11}>
+                      <Row className="todo-block">
+                        <Col className="todo-item" xs={11} md={11}>
                           <p className="todo-text">Todo: {todo.title}</p>
                         </Col>
                         <Col xs={1} md={1}>
@@ -37,8 +40,8 @@ const ToDoApp = (props) => {
                       {/* Loop over the sub-ToDos */}
                       {todo.subtodos.map((subtodo) => {
                         return (
-                          <Row>
-                            <Col className="subtodo" xs={11} md={11}>
+                          <Row className="subtodo-block">
+                            <Col className="subtodo-item" xs={11} md={11}>
                               <p className="subtodo-text">Sub-ToDo: {subtodo.title}</p>
                             </Col>
                             <Col xs={1} md={1}>
@@ -47,12 +50,29 @@ const ToDoApp = (props) => {
                           </Row>
                         );
                       })}
-                      <p onClick={() => props.addSubTodo("testsubtestsubtestsub", category.catID, todo.todoID, todo.subtodos.length)}>Add Sub-ToDo, category ID = {category.catID}, ToDo ID = {todo.todoID}, Sub-ToDo ID = {todo.subtodos.length} </p>
-
+                      {
+                        (category.catID === props.activeInput[0] && todo.todoID === props.activeInput[1] && todo.subtodos.length + 1 === props.activeInput[2])
+                          ?<div>
+                            <p onClick={() => props.selectActiveInput(0, 0, 0)}>test- click me</p>
+                            <input />
+                            <p onClick={() => props.addSubTodo("testsubtestsubtestsub", category.catID, todo.todoID, todo.subtodos.length)}>Add Sub-ToDo, category ID = {category.catID}, ToDo ID = {todo.todoID}, Sub-ToDo ID = {todo.subtodos.length}</p>
+                          </div>
+                          : <p onClick={() => props.selectActiveInput(category.catID, todo.todoID, todo.subtodos.length + 1)}>test- click me</p>
+                      }
                     </div>
                   );
                 })}
-                <p onClick={() => props.addTodo("testtesttest", category.catID, category.todos.length)}>Add ToDo, category ID = {category.catID}, ToDo ID = {category.todos.length}</p>
+                {
+                  (category.catID === props.activeInput[0] && category.todos.length === props.activeInput[1] && props.activeInput[2] === 0)
+                    ?<div>
+                      <p onClick={() => props.selectActiveInput(0, 0, 0)}>test- click me</p>
+                      <input />
+                      <p onClick={() => props.addTodo("testtesttest", category.catID, category.todos.length)}>Add ToDo, category ID = {category.catID}, ToDo ID = {category.todos.length}</p>
+                    </div>
+                    : <p onClick={() => props.selectActiveInput(category.catID, category.todos.length, 0)}>test- click me</p>
+                }
+
+
               </Col>
               <Col xs={12} md={4} className="outcomes">
                 <ul>
@@ -67,7 +87,19 @@ const ToDoApp = (props) => {
           );
         })}
       </Row>
-      <Row><p onClick={() => props.addCategory("testtesttest", todosList.length)}>Add Category, id = {todosList.length + 1}</p></Row>
+      <Row>
+        {
+          (todosList.length === props.activeInput[0] && props.activeInput[1] === 0 && props.activeInput[2] === 0)
+            ?<div>
+              <p onClick={() => props.selectActiveInput(0, 0, 0)}>test- click me</p>
+              <input />
+              <p onClick={() => props.addCategory("testtesttest", todosList.length)}>Add Category, id = {todosList.length + 1}</p>
+            </div>
+            : <p onClick={() => props.selectActiveInput(todosList.length, 0, 0)}>test- click me</p>
+        }
+
+
+      </Row>
 
     </Grid>
   );
