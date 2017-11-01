@@ -89,13 +89,13 @@ const ToDoApp = (props) => {
       </Row>
       <Row>
         {
-          (todosList.length === props.activeInput[0] && props.activeInput[1] === 0 && props.activeInput[2] === 0)
+          (todosList.length + 1 === props.activeInput[0] && props.activeInput[1] === 0 && props.activeInput[2] === 0)
             ?<div>
               <p onClick={() => props.selectActiveInput(0, 0, 0)}>test- click me</p>
               <input />
               <p onClick={() => props.addCategory("testtesttest", todosList.length)}>Add Category, id = {todosList.length + 1}</p>
             </div>
-            : <p onClick={() => props.selectActiveInput(todosList.length, 0, 0)}>test- click me</p>
+            : <p onClick={() => props.selectActiveInput(todosList.length + 1, 0, 0)}>test- click me</p>
         }
 
 
