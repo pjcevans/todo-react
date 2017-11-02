@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Grid, Col } from "react-bootstrap";
+import AddItemButton from "./AddItemButton";
 import "./ToDoApp.css";
 
 const ToDoApp = (props) => {
@@ -52,24 +53,43 @@ const ToDoApp = (props) => {
                       })}
                       {
                         (category.catID === props.activeInput[0] && todo.todoID === props.activeInput[1] && todo.subtodos.length + 1 === props.activeInput[2])
-                          ?<div>
-                            <p onClick={() => props.selectActiveInput(0, 0, 0)}>test- click me</p>
-                            <input />
-                            <p onClick={() => props.addSubTodo("testsubtestsubtestsub", category.catID, todo.todoID, todo.subtodos.length)}>Add Sub-ToDo, category ID = {category.catID}, ToDo ID = {todo.todoID}, Sub-ToDo ID = {todo.subtodos.length}</p>
-                          </div>
-                          : <p onClick={() => props.selectActiveInput(category.catID, todo.todoID, todo.subtodos.length + 1)}>test- click me</p>
+                          ? <AddItemButton
+                            selectActiveInput={props.selectActiveInput}
+                            addItem={props.addSubTodo}
+                            catID={category.catID}
+                            todoID={todo.todoID}
+                            subtodoID={todo.subtodos.length}
+                            isActive={true}
+                            type={"Sub-Todo"} />
+
+                          : <AddItemButton
+                            selectActiveInput={props.selectActiveInput}
+                            addItem={props.addSubTodo}
+                            catID={category.catID}
+                            todoID={todo.todoID}
+                            subtodoID={todo.subtodos.length}
+                            isActive={false}
+                            type={"Sub-Todo"} />
                       }
                     </div>
                   );
                 })}
                 {
                   (category.catID === props.activeInput[0] && category.todos.length === props.activeInput[1] && props.activeInput[2] === 0)
-                    ?<div>
-                      <p onClick={() => props.selectActiveInput(0, 0, 0)}>test- click me</p>
-                      <input />
-                      <p onClick={() => props.addTodo("testtesttest", category.catID, category.todos.length)}>Add ToDo, category ID = {category.catID}, ToDo ID = {category.todos.length}</p>
-                    </div>
-                    : <p onClick={() => props.selectActiveInput(category.catID, category.todos.length, 0)}>test- click me</p>
+                    ? <AddItemButton
+                      selectActiveInput={props.selectActiveInput}
+                      addItem={props.addTodo}
+                      catID={category.catID}
+                      todoID={category.todos.length}
+                      isActive={true}
+                      type={"Todo"} />
+                    : <AddItemButton
+                      selectActiveInput={props.selectActiveInput}
+                      addItem={props.addTodo}
+                      catID={category.catID}
+                      todoID={category.todos.length}
+                      isActive={false}
+                      type={"Todo"} />
                 }
 
 
@@ -91,11 +111,11 @@ const ToDoApp = (props) => {
         {
           (todosList.length + 1 === props.activeInput[0] && props.activeInput[1] === 0 && props.activeInput[2] === 0)
             ?<div>
-              <p onClick={() => props.selectActiveInput(0, 0, 0)}>test- click me</p>
-              <input />
+              <p onClick={() => props.selectActiveInput(0, 0, 0)}>testy- click me</p>
+              <input type="text" autofocus="true"/>
               <p onClick={() => props.addCategory("testtesttest", todosList.length)}>Add Category, id = {todosList.length + 1}</p>
             </div>
-            : <p onClick={() => props.selectActiveInput(todosList.length + 1, 0, 0)}>test- click me</p>
+            : <p onClick={() => props.selectActiveInput(todosList.length + 1, 0, 0)}>testy- click me</p>
         }
 
 

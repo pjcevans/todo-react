@@ -77,7 +77,7 @@ export function todosLists(state = Object.assign(todosList), action) {
       // Returns each category unless ID matches, in which case it returns the modified category
       return state.map(category =>
         (category.catID === action.catID)
-          ? {...category, "todos": [...category.todos, {text: action.text, todoID: action.todoID, subtodos: []}]}
+          ? {...category, "todos": [...category.todos, {title: action.text, todoID: action.todoID, subtodos: []}]}
           : category
       );
 
@@ -87,7 +87,7 @@ export function todosLists(state = Object.assign(todosList), action) {
           // Returns the category with todos list modified
           return Object.assign({...category}, {"todos": category.todos.map(todo =>
             (todo.todoID === action.todoID)
-              ? {...todo, "subtodos": [...todo.subtodos, {text: action.text, subTodoID: action.subTodoID}]}
+              ? {...todo, "subtodos": [...todo.subtodos, {title: action.text, subTodoID: action.subTodoID}]}
               : todo
           )});
         } else {
