@@ -21,6 +21,7 @@
 
 .todo-block {
   border: thin solid blue;
+  margin-left: 1%;
 }
 .todo-item {
   background: green;
@@ -31,6 +32,7 @@
 
 .subtodo-block {
   border: thin solid green;
+  margin-left: 3%;
 }
 .subtodo-item {
   background: red;

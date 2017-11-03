@@ -123,8 +123,6 @@ const ToDoApp = (props) => {
               isActive={false}
               type={"Category"} />
         }
-
-
       </Row>
 
     </Grid>

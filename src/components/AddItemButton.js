@@ -20,11 +20,17 @@ class AddItemButton extends Component {
     let subtodoID = this.props.subtodoID || 0; // however this will break because of the +1 for incrementing?
     let incrementedSubtodoID = this.props.subtodoID + 1 || 0;
     // let incrementedTodoID = this.props.todoID + 1 || 0;
+    let classes = {
+      "Sub-Todo": "subtodo-block",
+      "Todo": "todo-block",
+      "Category": "list-block"
+    };
+    let inputClass = classes[this.props.type];
 
     if (this.props.isActive === true) {
       return (
         <div>
-          <p onClick={() => this.props.selectActiveInput(0, 0, 0)}><FaPlusSquareO /></p>
+          <p className={inputClass} onClick={() => this.props.selectActiveInput(0, 0, 0)}><FaPlusSquareO /></p>
           <input
             type="text"
             value={this.state.inputValue}
@@ -36,7 +42,7 @@ class AddItemButton extends Component {
       );
     } else {
       return (
-        <p onClick={() => this.props.selectActiveInput(catID, todoID, incrementedSubtodoID)}><FaPlusSquareO /></p>
+        <p className={inputClass} onClick={() => this.props.selectActiveInput(catID, todoID, incrementedSubtodoID)}><FaPlusSquareO /></p>
       );
     }
   }
