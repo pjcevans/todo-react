@@ -109,13 +109,19 @@ const ToDoApp = (props) => {
       </Row>
       <Row>
         {
-          (todosList.length + 1 === props.activeInput[0] && props.activeInput[1] === 0 && props.activeInput[2] === 0)
-            ?<div>
-              <p onClick={() => props.selectActiveInput(0, 0, 0)}>testy- click me</p>
-              <input type="text" autofocus="true"/>
-              <p onClick={() => props.addCategory("testtesttest", todosList.length)}>Add Category, id = {todosList.length + 1}</p>
-            </div>
-            : <p onClick={() => props.selectActiveInput(todosList.length + 1, 0, 0)}>testy- click me</p>
+          (todosList.length === props.activeInput[0] && props.activeInput[1] === 0 && props.activeInput[2] === 0)
+            ? <AddItemButton
+              selectActiveInput={props.selectActiveInput}
+              addItem={props.addCategory}
+              catID={todosList.length}
+              isActive={true}
+              type={"Category"} />
+            : <AddItemButton
+              selectActiveInput={props.selectActiveInput}
+              addItem={props.addCategory}
+              catID={todosList.length}
+              isActive={false}
+              type={"Category"} />
         }
 
 
