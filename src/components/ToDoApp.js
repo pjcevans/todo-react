@@ -109,7 +109,7 @@ const ToDoApp = (props) => {
       </Row>
       <Row>
         {
-          (todosList.length === props.activeInput[0] && props.activeInput[1] === 0 && props.activeInput[2] === 0)
+          (todosList.length + 1 === props.activeInput[0] && props.activeInput[1] === 0 && props.activeInput[2] === 0)
             ? <AddItemButton
               selectActiveInput={props.selectActiveInput}
               addItem={props.addCategory}
@@ -119,7 +119,7 @@ const ToDoApp = (props) => {
             : <AddItemButton
               selectActiveInput={props.selectActiveInput}
               addItem={props.addCategory}
-              catID={todosList.length}
+              catID={todosList.length + 1}
               isActive={false}
               type={"Category"} />
         }
