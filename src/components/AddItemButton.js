@@ -34,7 +34,7 @@ class AddItemButton extends Component {
         <Row className="input-row">
           <p className={inputClass} onClick={() => this.props.selectActiveInput(0, 0, 0)}><FaPlusSquareO /></p>
           <Form inline>
-            <FormGroup>
+            <FormGroup className="input-form">
               <ControlLabel className="input-item">Add a {this.props.type}</ControlLabel>
               <FormControl
                 className="input-item"
@@ -43,7 +43,7 @@ class AddItemButton extends Component {
                 onChange={this.handleInputChange}
                 placeholder="Add a new item..."
                 autofocus="true" />
-              <Button type="submit" onClick={() => this.props.addItem(this.state.inputValue, catID, todoID, subtodoID)}>Submit</Button>
+              <Button className="input-item" type="submit" onClick={() => this.props.addItem(this.state.inputValue, catID, todoID, subtodoID)}>Submit</Button>
             </FormGroup>
           </Form>
         </Row>

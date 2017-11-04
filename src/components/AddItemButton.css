@@ -3,3 +3,11 @@
   margin: 0;
   padding-bottom: 1%;
 }
+
+.input-form {
+  width: 400px;
+}
+
+.input-item {
+  margin-left: 1%;
+}
