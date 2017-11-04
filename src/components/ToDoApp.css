@@ -5,8 +5,12 @@
   color: orange;
 }
 
+.category-block {
+  padding: 2%;
+}
+
 .list-block {
-  padding: 50px;
+
 }
 
 .title-block {

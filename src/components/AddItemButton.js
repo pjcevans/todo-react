@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Row, Button, FormControl, FormGroup, ControlLabel, Form } from "react-bootstrap";
+import "./AddItemButton.css";
 import FaPlusSquareO from "react-icons/lib/fa/plus-square-o";
 
 
@@ -29,16 +31,22 @@ class AddItemButton extends Component {
 
     if (this.props.isActive === true) {
       return (
-        <div>
+        <Row className="input-row">
           <p className={inputClass} onClick={() => this.props.selectActiveInput(0, 0, 0)}><FaPlusSquareO /></p>
-          <input
-            type="text"
-            value={this.state.inputValue}
-            onChange={this.handleInputChange}
-            placeholder="Add a new item..."
-            autofocus="true" />
-          <p onClick={() => this.props.addItem(this.state.inputValue, catID, todoID, subtodoID)}>Add a {this.props.type}</p>
-        </div>
+          <Form inline>
+            <FormGroup>
+              <ControlLabel className="input-item">Add a {this.props.type}</ControlLabel>
+              <FormControl
+                className="input-item"
+                type="text"
+                value={this.state.inputValue}
+                onChange={this.handleInputChange}
+                placeholder="Add a new item..."
+                autofocus="true" />
+              <Button type="submit" onClick={() => this.props.addItem(this.state.inputValue, catID, todoID, subtodoID)}>Submit</Button>
+            </FormGroup>
+          </Form>
+        </Row>
       );
     } else {
       return (
