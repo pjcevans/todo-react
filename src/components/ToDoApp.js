@@ -18,8 +18,8 @@ const ToDoApp = (props) => {
         <Col xs={12} md={8} >
           <h4>Selected Todo list: Saved list 1</h4>
         </Col>
-        <Col xs={12} md={4} className="outcomes" >
-          <h4 className="outcomes-text">Outcomes:</h4>
+        <Col xs={12} md={4} >
+          <h4 className="outcomes-text"></h4>
         </Col>
       </Row>
 
@@ -108,6 +108,9 @@ const ToDoApp = (props) => {
 
               </Col>
               <Col xs={12} md={4} className="outcomes">
+              <Row>
+                <p>Outcomes:</p>
+              </Row>
                 <ul>
                   {category.outcomes.map((outcome) => {
                     return (

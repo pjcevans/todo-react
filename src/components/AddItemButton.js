@@ -14,7 +14,8 @@ class AddItemButton extends Component {
   handleInputChange(e) {
     this.setState({ inputValue: e.target.value });
   }
-  handleSubmit(value, catID, todoID, incrementedSubtodoID) {
+  handleSubmit(event, value, catID, todoID, incrementedSubtodoID) {
+    event.preventDefault()
     this.props.addItem(value, catID, todoID, incrementedSubtodoID);
     this.setState({ inputValue: "" });
   }
@@ -36,7 +37,7 @@ class AddItemButton extends Component {
       return (
         <Row className="input-row">
           <p className={inputClass} onClick={() => this.props.selectActiveInput(0, 0, 0)}><FaPlusSquareO /></p>
-          <Form inline>
+          <Form inline onSubmit={(event) => this.handleSubmit(event, this.state.inputValue, catID, todoID, subtodoID)}>
             <FormGroup className="input-form">
               <ControlLabel className="input-item">Add a {this.props.type}</ControlLabel>
               <FormControl
@@ -46,7 +47,7 @@ class AddItemButton extends Component {
                 onChange={this.handleInputChange}
                 placeholder="Add a new item..."
                 autoFocus="true" />
-              <Button className="input-item" type="button" onClick={() => this.handleSubmit(this.state.inputValue, catID, todoID, subtodoID)}>Submit</Button>
+              <Button className="input-item" type="submit">Submit</Button>
             </FormGroup>
           </Form>
         </Row>
