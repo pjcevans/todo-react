@@ -7,6 +7,7 @@
 
 .category-block {
   padding: 2%;
+
 }
 
 .list-block {
@@ -23,24 +24,37 @@
   color: red;
 }
 
-.todo-block {
-  border: thin solid blue;
-  margin-left: 1%;
-}
 .todo-item {
+  border: thin solid blue;
+  margin: 0;
+  margin-right: 0;
   background: green;
+
 }
 .todo-text {
   color: blue;
+
 }
+
 
 .subtodo-block {
   border: thin solid green;
-  margin-left: 3%;
+  margin: 0;
+  padding-left: 3%;
 }
 .subtodo-item {
   background: red;
 }
 .subtodo-text {
   color: green;
+}
+
+.todo-block {
+  padding-left: 1%;
+  margin: 0;
+  background: red;
+}
+
+.category-under-title-block {
+  border: thick solid black;
 }

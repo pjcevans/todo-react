@@ -34,71 +34,73 @@ const ToDoApp = (props) => {
                   </Col>
                 </Row>
                 {/* For each ToDo render the title and loop over the sub-ToDos */}
-                {category.todos.map((todo) => {
-                  return (
-                    <div>
+                <Row className="category-under-title-block">
+                  {category.todos.map((todo) => {
+                    return (
                       <Row className="todo-block">
-                        <Col className="todo-item" xs={11} md={11}>
-                          <p className="todo-text">Todo: {todo.title}</p>
-                        </Col>
-                        <Col xs={1} md={1}>
-                          <p  className="todo-text">X</p>
-                        </Col>
+                        <Row className="todo-item">
+                          <Col xs={11} md={11}>
+                            <p className="todo-text">Todo: {todo.title}</p>
+                          </Col>
+                          <Col xs={1} md={1}>
+                            <p className="todo-text">X</p>
+                          </Col>
+                        </Row>
+
+                        {/* Loop over the sub-ToDos */}
+                        {todo.subtodos.map((subtodo) => {
+                          return (
+                            <Row className="subtodo-block">
+                              <Col className="subtodo-item" xs={11} md={11}>
+                                <p className="subtodo-text">Sub-ToDo: {subtodo.title}</p>
+                              </Col>
+                              <Col xs={1} md={1}>
+                                <p className="subtodo-text">X</p>
+                              </Col>
+                            </Row>
+                          );
+                        })}
+                        {
+                          (category.catID === props.activeInput[0] && todo.todoID === props.activeInput[1] && todo.subtodos.length + 1 === props.activeInput[2])
+                            ? <AddItemButton
+                              selectActiveInput={props.selectActiveInput}
+                              addItem={props.addSubTodo}
+                              catID={category.catID}
+                              todoID={todo.todoID}
+                              subtodoID={todo.subtodos.length}
+                              isActive={true}
+                              type={"Sub-Todo"} />
+
+                            : <AddItemButton
+                              selectActiveInput={props.selectActiveInput}
+                              addItem={props.addSubTodo}
+                              catID={category.catID}
+                              todoID={todo.todoID}
+                              subtodoID={todo.subtodos.length}
+                              isActive={false}
+                              type={"Sub-Todo"} />
+                        }
                       </Row>
-
-                      {/* Loop over the sub-ToDos */}
-                      {todo.subtodos.map((subtodo) => {
-                        return (
-                          <Row className="subtodo-block">
-                            <Col className="subtodo-item" xs={11} md={11}>
-                              <p className="subtodo-text">Sub-ToDo: {subtodo.title}</p>
-                            </Col>
-                            <Col xs={1} md={1}>
-                              <p className="subtodo-text">X</p>
-                            </Col>
-                          </Row>
-                        );
-                      })}
-                      {
-                        (category.catID === props.activeInput[0] && todo.todoID === props.activeInput[1] && todo.subtodos.length + 1 === props.activeInput[2])
-                          ? <AddItemButton
-                            selectActiveInput={props.selectActiveInput}
-                            addItem={props.addSubTodo}
-                            catID={category.catID}
-                            todoID={todo.todoID}
-                            subtodoID={todo.subtodos.length}
-                            isActive={true}
-                            type={"Sub-Todo"} />
-
-                          : <AddItemButton
-                            selectActiveInput={props.selectActiveInput}
-                            addItem={props.addSubTodo}
-                            catID={category.catID}
-                            todoID={todo.todoID}
-                            subtodoID={todo.subtodos.length}
-                            isActive={false}
-                            type={"Sub-Todo"} />
-                      }
-                    </div>
-                  );
-                })}
-                {
-                  (category.catID === props.activeInput[0] && category.todos.length === props.activeInput[1] && props.activeInput[2] === 0)
-                    ? <AddItemButton
-                      selectActiveInput={props.selectActiveInput}
-                      addItem={props.addTodo}
-                      catID={category.catID}
-                      todoID={category.todos.length}
-                      isActive={true}
-                      type={"Todo"} />
-                    : <AddItemButton
-                      selectActiveInput={props.selectActiveInput}
-                      addItem={props.addTodo}
-                      catID={category.catID}
-                      todoID={category.todos.length}
-                      isActive={false}
-                      type={"Todo"} />
-                }
+                    );
+                  })}
+                  {
+                    (category.catID === props.activeInput[0] && category.todos.length === props.activeInput[1] && props.activeInput[2] === 0)
+                      ? <AddItemButton
+                        selectActiveInput={props.selectActiveInput}
+                        addItem={props.addTodo}
+                        catID={category.catID}
+                        todoID={category.todos.length}
+                        isActive={true}
+                        type={"Todo"} />
+                      : <AddItemButton
+                        selectActiveInput={props.selectActiveInput}
+                        addItem={props.addTodo}
+                        catID={category.catID}
+                        todoID={category.todos.length}
+                        isActive={false}
+                        type={"Todo"} />
+                  }
+                </Row>
 
 
               </Col>
