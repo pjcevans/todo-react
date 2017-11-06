@@ -14,7 +14,10 @@ class AddItemButton extends Component {
   handleInputChange(e) {
     this.setState({ inputValue: e.target.value });
   }
-
+  handleSubmit(value, catID, todoID, incrementedSubtodoID) {
+    this.props.addItem(value, catID, todoID, incrementedSubtodoID);
+    this.setState({ inputValue: "" });
+  }
 
   render() {
     let catID = this.props.catID || 0;
@@ -22,17 +25,17 @@ class AddItemButton extends Component {
     let subtodoID = this.props.subtodoID || 0; // however this will break because of the +1 for incrementing?
     let incrementedSubtodoID = this.props.subtodoID + 1 || 0;
     // let incrementedTodoID = this.props.todoID + 1 || 0;
-    // let classes = {
-    //   "Sub-Todo": "subtodo-block",
-    //   "Todo": "todo-block",
-    //   "Category": "list-block"
-    // };
-    // let inputClass = classes[this.props.type];
+    let classes = {
+      "Sub-Todo": "subtodo-block",
+      "Todo": "",
+      "Category": ""
+    };
+    let inputClass = classes[this.props.type];
 
     if (this.props.isActive === true) {
       return (
         <Row className="input-row">
-          <p onClick={() => this.props.selectActiveInput(0, 0, 0)}><FaPlusSquareO /></p>
+          <p className={inputClass} onClick={() => this.props.selectActiveInput(0, 0, 0)}><FaPlusSquareO /></p>
           <Form inline>
             <FormGroup className="input-form">
               <ControlLabel className="input-item">Add a {this.props.type}</ControlLabel>
@@ -42,15 +45,15 @@ class AddItemButton extends Component {
                 value={this.state.inputValue}
                 onChange={this.handleInputChange}
                 placeholder="Add a new item..."
-                autofocus="true" />
-              <Button className="input-item" type="submit" onClick={() => this.props.addItem(this.state.inputValue, catID, todoID, subtodoID)}>Submit</Button>
+                autoFocus="true" />
+              <Button className="input-item" type="button" onClick={() => this.handleSubmit(this.state.inputValue, catID, todoID, subtodoID)}>Submit</Button>
             </FormGroup>
           </Form>
         </Row>
       );
     } else {
       return (
-        <p onClick={() => this.props.selectActiveInput(catID, todoID, incrementedSubtodoID)}><FaPlusSquareO /></p>
+        <p className={inputClass} onClick={() => this.props.selectActiveInput(catID, todoID, incrementedSubtodoID)}><FaPlusSquareO /></p>
       );
     }
   }
