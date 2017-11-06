@@ -16,7 +16,7 @@ const ToDoApp = (props) => {
       {/* For each category item, render the title, outcomes & loop over the todos */}
       <Row>
         <Col xs={12} md={8} >
-          <h4>Selected Todo list:</h4>
+          <h4>Selected Todo list: Saved list 1</h4>
         </Col>
         <Col xs={12} md={4} className="outcomes" >
           <h4 className="outcomes-text">Outcomes:</h4>
@@ -30,7 +30,10 @@ const ToDoApp = (props) => {
               <Col xs={12} md={8} >
                 <Row className="title-block" >
                   <Col className="title-item" xs={11} md={11}>
-                    <p className="title-text">Title: {category.title}</p>
+                    <p className="title-text">{category.title}</p>
+                  </Col>
+                  <Col xs={1} md={1}>
+                    <p className="title-text"></p>
                   </Col>
                 </Row>
                 {/* For each ToDo render the title and loop over the sub-ToDos */}
@@ -40,10 +43,10 @@ const ToDoApp = (props) => {
                       <Row className="todo-block">
                         <Row className="todo-item">
                           <Col xs={11} md={11}>
-                            <p className="todo-text">Todo: {todo.title}</p>
+                            <p className="todo-text">{todo.title}</p>
                           </Col>
                           <Col xs={1} md={1}>
-                            <p className="todo-text">X</p>
+                            <p className="todo-text"></p>
                           </Col>
                         </Row>
 
@@ -52,10 +55,10 @@ const ToDoApp = (props) => {
                           return (
                             <Row className="subtodo-block">
                               <Col className="subtodo-item" xs={11} md={11}>
-                                <p className="subtodo-text">Sub-ToDo: {subtodo.title}</p>
+                                <p className="subtodo-text">{subtodo.title}</p>
                               </Col>
                               <Col xs={1} md={1}>
-                                <p className="subtodo-text">X</p>
+                                <p className="subtodo-text"></p>
                               </Col>
                             </Row>
                           );

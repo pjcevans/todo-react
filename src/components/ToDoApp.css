@@ -7,7 +7,7 @@
 
 .category-block {
   padding: 2%;
-
+  font-family: "Indie Flower" ,"Helvetica", sans-serif;
 }
 
 .list-block {
@@ -33,7 +33,6 @@
 }
 .todo-text {
   color: blue;
-
 }
 
 
