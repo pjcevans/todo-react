@@ -15,10 +15,12 @@ const ToDoApp = (props) => {
     <Grid>
       {/* For each category item, render the title, outcomes & loop over the todos */}
       <Row>
-        <Col xs={12} md={8} >
+        <Col xs={12} md={8}>
           <h4>Selected Todo list: Saved list 1</h4>
         </Col>
-        <Col xs={12} md={4} >
+        <Col xs={12} md={1}>
+        </Col>
+        <Col xs={12} md={3} >
           <h4 className="outcomes-text"></h4>
         </Col>
       </Row>
@@ -107,10 +109,9 @@ const ToDoApp = (props) => {
 
 
               </Col>
-              <Col xs={12} md={4} className="outcomes">
-              <Row>
-                <p>Outcomes:</p>
-              </Row>
+
+              <Col xs={12} md={3} className="outcomes">
+                <p className="outcomes-text">Outcomes:</p>
                 <ul>
                   {category.outcomes.map((outcome) => {
                     return (

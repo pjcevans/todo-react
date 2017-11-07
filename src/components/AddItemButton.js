@@ -15,7 +15,7 @@ class AddItemButton extends Component {
     this.setState({ inputValue: e.target.value });
   }
   handleSubmit(event, value, catID, todoID, incrementedSubtodoID) {
-    event.preventDefault()
+    event.preventDefault();
     this.props.addItem(value, catID, todoID, incrementedSubtodoID);
     this.setState({ inputValue: "" });
   }

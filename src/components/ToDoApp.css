@@ -1,12 +1,14 @@
 .outcomes {
   border: thin solid orange;
+  padding: 0;
+  margin: 3%;
   }
 .outcomes-text {
   color: orange;
+  padding-left: 5%;
 }
 
 .category-block {
-  padding: 2%;
   font-family: "Indie Flower" ,"Helvetica", sans-serif;
 }
 
@@ -32,11 +34,10 @@
 
 .category-under-title-block {
   border: thin solid black;
-  padding: 1.5%;
 }
 
 .todo-block {
-  margin: 1.5%;
+  margin: 4.5%;
   margin-bottom: 2%;
   border: thin solid black;
 }
@@ -60,6 +61,7 @@
 
 .subtodo-item {
   /*background: red;*/
+  padding: 0;
 }
 .subtodo-text {
   color: green;
