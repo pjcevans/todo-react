@@ -55,14 +55,18 @@
 .subtodo-block {
   /*border: thin solid green;*/
   margin: 0;
-  padding-left: 3%;
-  margin-left: 2%;
+  margin-left: 5%;
 }
 
 .subtodo-item {
   /*background: red;*/
   padding: 0;
+  margin: 0;
 }
 .subtodo-text {
   color: green;
+}
+
+.center-content {
+  text-align: center;
 }
