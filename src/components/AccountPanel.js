@@ -13,14 +13,14 @@ const AccountPanel = (props) => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <NavItem eventKey={1} href="#">Settings</NavItem>
-          <NavItem eventKey={2} href="#">Profile</NavItem>
+          <NavItem eventKey={1} href="#" onClick={(event) => props.reset()}>Reset to blank list</NavItem>
+          <NavItem eventKey={2} href="#" onClick={(event) => props.loadExampleData()}>Load example data</NavItem>
           <NavDropdown eventKey={3} title="Select list" id="basic-nav-dropdown">
-            <MenuItem eventKey={3.1}>Saved list 1</MenuItem>
-            <MenuItem eventKey={3.2}>Saved list 2</MenuItem>
-            <MenuItem eventKey={3.3}>Saved list 3</MenuItem>
+            <MenuItem eventKey={3.1}>Not</MenuItem>
+            <MenuItem eventKey={3.2}>In</MenuItem>
+            <MenuItem eventKey={3.3}>Use</MenuItem>
             <MenuItem divider />
-            <MenuItem eventKey={3.3}>Completed list 1</MenuItem>
+            <MenuItem eventKey={3.3}>Yet</MenuItem>
           </NavDropdown>
         </Nav>
         <Nav pullRight>

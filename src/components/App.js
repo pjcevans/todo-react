@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AccountPanel from "./AccountPanel.js";
+import SmartAccountPanel from "./SmartAccountPanel.js";
 import SmartToDoApp from "./SmartToDoApp.js";
 import ErrorBoundary from "./ErrorBoundary.js";
 import "./App.css";
@@ -13,7 +13,7 @@ class App extends Component {
         <div>
 
           {/* Account settings header panel */}
-          <AccountPanel />
+          <SmartAccountPanel />
 
           {/* Main ToDo UI */}
           <ErrorBoundary>

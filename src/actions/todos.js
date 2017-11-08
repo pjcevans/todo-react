@@ -23,6 +23,12 @@ export const addOutcome = (text, catID) => {
   };
 };
 
+export const reset = () => {
+  return {
+    type: "RESET"
+  };
+};
+
 export const addSubTodo = (text, catID, todoID, numberOfSubTodos) => {
   return {
     type: "ADD_SUBTODO",
@@ -30,5 +36,11 @@ export const addSubTodo = (text, catID, todoID, numberOfSubTodos) => {
     catID,
     subTodoID: numberOfSubTodos + 1,
     text
+  };
+};
+
+export const loadExampleData = () => {
+  return {
+    type: "LOAD_EXAMPLE_DATA"
   };
 };
