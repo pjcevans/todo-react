@@ -15,6 +15,14 @@ export const addTodo = (text, catID, numberOfTodos) => {
   };
 };
 
+export const addOutcome = (text, catID) => {
+  return {
+    type: "ADD_OUTCOME",
+    catID,
+    text
+  };
+};
+
 export const addSubTodo = (text, catID, todoID, numberOfSubTodos) => {
   return {
     type: "ADD_SUBTODO",

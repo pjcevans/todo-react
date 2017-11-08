@@ -9,8 +9,8 @@ const ToDoApp = (props) => {
   // const todosList = props.todosList;
 
 
-  const todosList = props.todosList;
-
+  const todosList = props.data.todosList;
+  console.log(todosList)
   return(
     <Grid>
       {/* For each category item, render the title, outcomes & loop over the todos */}
@@ -119,6 +119,21 @@ const ToDoApp = (props) => {
                     );
                   })}
                 </ul>
+                {
+                  (category.catID === props.activeInput[0] && props.activeInput[1] === 0 && props.activeInput[2] === 0)
+                    ? <AddItemButton
+                      selectActiveInput={props.selectActiveInput}
+                      addItem={props.addOutcome}
+                      catID={category.catID}
+                      isActive={true}
+                      type={"Outcome"} />
+                    : <AddItemButton
+                      selectActiveInput={props.selectActiveInput}
+                      addItem={props.addOutcome}
+                      catID={category.catID}
+                      isActive={false}
+                      type={"Outcome"} />
+                }
               </Col>
             </Row>
           );

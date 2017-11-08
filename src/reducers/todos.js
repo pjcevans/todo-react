@@ -1,4 +1,4 @@
-const todosList = [
+const initial = [
   {
     "title": "Design",
     "catID": 1,
@@ -67,7 +67,7 @@ const todosList = [
 
 
 
-export function todosLists(state = Object.assign(todosList), action) {
+export function data(state = {todosList: initial}, action) {
   switch (action.type) {
 
     case "ADD_CATEGORY":
@@ -75,14 +75,21 @@ export function todosLists(state = Object.assign(todosList), action) {
 
     case "ADD_TODO":
       // Returns each category unless ID matches, in which case it returns the modified category
-      return state.map(category =>
+      return {todosList: state.todosList.map(category =>
         (category.catID === action.catID)
           ? {...category, "todos": [...category.todos, {title: action.text, todoID: action.todoID, subtodos: []}]}
           : category
-      );
+      )};
+
+    case "ADD_OUTCOME":
+      return {todosList: state.todosList.map(category =>
+        (category.catID === action.catID)
+          ? {...category, "outcomes": [...category.outcomes, action.text]}
+          : category
+      )};
 
     case "ADD_SUBTODO":
-      return state.map((category) => {
+      return {todosList: state.todosList.map((category) => {
         if (category.catID === action.catID) {
           // Returns the category with todos list modified
           return Object.assign({...category}, {"todos": category.todos.map(todo =>
@@ -94,7 +101,7 @@ export function todosLists(state = Object.assign(todosList), action) {
           return category;
         }
 
-      });
+      })};
 
     default:
       return state;

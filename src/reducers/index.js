@@ -1,8 +1,12 @@
-import { combineReducers } from "redux";
-import { todosLists } from "./todos";
+// import { combineReducers } from "redux";
+import { data } from "./todos";
 import { toggles } from "./toggles";
 
-export default combineReducers({
-  todosLists,
-  toggles
-});
+// Combining reducers is handled by redux-persist
+//
+// export default combineReducers({
+//   todosLists,
+//   toggles
+// });
+
+export default { data, toggles };
