@@ -10,13 +10,12 @@ const ToDoApp = (props) => {
 
 
   const todosList = props.data.todosList;
-  console.log(todosList)
   return(
     <Grid>
       {/* For each category item, render the title, outcomes & loop over the todos */}
       <Row>
         <Col xs={12} md={8}>
-          <h4>Selected Todo list: Saved list 1</h4>
+          <h4>Todo Listage</h4>
         </Col>
         <Col xs={12} md={1}>
         </Col>

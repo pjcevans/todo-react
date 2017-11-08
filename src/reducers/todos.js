@@ -67,11 +67,11 @@ const initial = [
 
 
 
-export function data(state = {todosList: initial}, action) {
+export function data(state = {todosList: []}, action) {
   switch (action.type) {
 
     case "ADD_CATEGORY":
-      return [...state, {title: action.text, catID: action.catID, todos: [], outcomes: []}];
+      return {todosList: [...state.todosList, {title: action.text, catID: action.catID, todos: [], outcomes: []}]};
 
     case "ADD_TODO":
       // Returns each category unless ID matches, in which case it returns the modified category
