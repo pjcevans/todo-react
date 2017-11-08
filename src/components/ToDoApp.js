@@ -51,19 +51,21 @@ const ToDoApp = (props) => {
                           </Col>
                         </Row>
 
-                        {/* Loop over the sub-ToDos */}
-                        {todo.subtodos.map((subtodo) => {
-                          return (
-                            <Row className="subtodo-block">
-                              <Col className="subtodo-item" xs={11} md={11}>
-                                <p className="subtodo-text">{subtodo.title}</p>
-                              </Col>
-                              <Col xs={1} md={1}>
-                                <p className="subtodo-text"></p>
-                              </Col>
-                            </Row>
-                          );
-                        })}
+                        <Row className="subtodo-block">
+                          {/* Loop over the sub-ToDos */}
+                          {todo.subtodos.map((subtodo) => {
+                            return (
+                              <Row className="subtodo-item">
+                                <Col className="subtodo-item" xs={11} md={11}>
+                                  <p className="subtodo-text">{subtodo.title}</p>
+                                </Col>
+                                <Col xs={1} md={1}>
+                                  <p className="subtodo-text"></p>
+                                </Col>
+                              </Row>
+                            );
+                          })}
+                        </Row>
                         {
                           (category.catID === props.activeInput[0] && todo.todoID === props.activeInput[1] && todo.subtodos.length + 1 === props.activeInput[2])
                             ? <AddItemButton
@@ -72,8 +74,7 @@ const ToDoApp = (props) => {
                               catID={category.catID}
                               todoID={todo.todoID}
                               subtodoID={todo.subtodos.length}
-                              isActive={true}
-                              type={"Sub-Todo"} />
+                              isActive={true} />
 
                             : <AddItemButton
                               selectActiveInput={props.selectActiveInput}
@@ -95,14 +96,16 @@ const ToDoApp = (props) => {
                         catID={category.catID}
                         todoID={category.todos.length}
                         isActive={true}
-                        type={"Todo"} />
+                        type={"Todo"}
+                        location={"center-content"} />
                       : <AddItemButton
                         selectActiveInput={props.selectActiveInput}
                         addItem={props.addTodo}
                         catID={category.catID}
                         todoID={category.todos.length}
                         isActive={false}
-                        type={"Todo"} />
+                        type={"Todo"}
+                        location={"center-content"} />
                   }
                 </Row>
 
