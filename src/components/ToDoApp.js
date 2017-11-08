@@ -74,7 +74,8 @@ const ToDoApp = (props) => {
                               catID={category.catID}
                               todoID={todo.todoID}
                               subtodoID={todo.subtodos.length}
-                              isActive={true} />
+                              isActive={true}
+                              type={"Sub-Todo"} />
 
                             : <AddItemButton
                               selectActiveInput={props.selectActiveInput}
