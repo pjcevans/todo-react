@@ -1,5 +1,60 @@
 import * as todos from "./todos.js";
+const categoryID = 4;
+const testText = "reducerTestText";
+const testNumberofTodos = 0;
 
+describe("ToDoReducers", () => {
+  it("Should return the initial state", () => {
+    expect(todos.data(undefined, {})).toEqual({todosList: []});
+  });
+
+  it("Should return the initial state with an added category", () => {
+    expect(
+      todos.data(
+        undefined,
+        {
+          text: testText,
+          type: "ADD_CATEGORY",
+          catID: categoryID
+        }
+      )
+    ).toEqual({todosList: [{title: testText, catID: categoryID, todos: [], outcomes: []}]});
+  });
+
+  it("Should clear all todos list data", () => {
+    expect(
+      todos.data(
+        {todosList:defaultState},
+        {
+          type: "RESET"
+        }
+      )
+    ).toEqual({todosList: []});
+  });
+
+  it("Should add a todo item", () => {
+    expect(
+      todos.data(
+        singleCategory,
+        {
+          type: "ADD_TODO",
+          todoID: testNumberofTodos + 1,
+          catID: categoryID,
+          text: testText
+        }
+      )
+    ).toEqual({todosList: []});
+  });
+});
+
+
+
+
+
+
+const singleCategory = {todosList: [{title: testText, catID: categoryID, todos: [], outcomes: []}]};
+const singleCategorysingleTodo = {todosList: [{title: testText, catID: categoryID, todos: [{title: testText, todoID: testNumberofTodos + 1, subTodos: []], outcomes: []}]};
+// Larger test data instantiations
 const defaultState = [
   {
     "title": "Design",
@@ -66,25 +121,3 @@ const defaultState = [
     ]
   }
 ];
-
-const categoryID = 4;
-const testText = "reducerTestText";
-
-describe("ToDoReducers", () => {
-  it("Should return the initial state", () => {
-    expect(todos.todosLists(undefined, {})).toEqual(defaultState);
-  });
-
-  it("Should return the initial state with an added category", () => {
-    expect(
-      todos.todosLists(
-        undefined,
-        {
-          text: testText,
-          type: "ADD_CATEGORY",
-          catID: categoryID
-        }
-      )
-    ).toEqual([...defaultState, {title: testText, catID: categoryID, todos: [], outcomes: []}]);
-  });
-});
